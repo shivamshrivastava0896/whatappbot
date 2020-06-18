@@ -12,11 +12,9 @@ def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
-    if 'HEY' in msg.upper() or 'HI' in msg.upper() or 'HELLO' in msg.upper() :
+    if 'HEY' in str(msg.upper()) :
         resp = MessagingResponse()
-        resp.message("Hello there , I will help you in these cases now : 1.Covid case " +''
-                     "2. Weather of your city "+ ' '
-                     "3.Joke for you ")
+        resp.message("Hello there , I will help you in these cases now : 1.Covid case")
         resp.message()
         k=str(resp)
     return k 
