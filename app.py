@@ -15,9 +15,9 @@ def sms_reply():
 
     # Create reply
     resp = MessagingResponse()
-    resp.message("You sent me this message: {}".format(msg)")
+    resp.message("You sent me this message: {}".format(msg))
 
-    return str(resp)
+    return 0
 
 
 
