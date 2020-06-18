@@ -15,7 +15,7 @@ def sms_reply():
 
     # Create reply
     resp = MessagingResponse()
-    resp.message("You said: {}".format(msg))
+    resp.message("You sent this message :) : {}".format(msg))
 
     return str(resp)
 
