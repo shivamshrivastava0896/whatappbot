@@ -15,7 +15,7 @@ def sms_reply():
     msg = request.form.get('Body')
     if msg == "Hey":
         resp = MessagingResponse()
-        resp.message("You sent me this message: {}".format(msg))
+        resp.message("Hey my Name Twilo , I will help you in 1. covid case number")
         print(type(msg))
         k= str(resp)
 
