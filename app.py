@@ -15,7 +15,44 @@ def sms_reply():
 
     # Create reply
     resp = MessagingResponse()
-    resp.message("You sent this message :) : {}".format(msg))
+    resp.message(" State                        State Code
+ Andaman and Nicobar Islands  AN
+ Andhra Pradesh               AP
+ Andhra Pradesh (New)         AD
+ Arunachal Pradesh            AR
+ Assam                        AS
+ Bihar                        BH
+ Chandigarh                   CH
+ Chattisgarh                  CT
+ Dadra and Nagar Haveli       DN
+ Daman and Diu                DD
+ Delhi                        DL
+ Goa                          GA
+ Gujarat                      GJ
+ Haryana                      HR
+ Himachal Pradesh             HP
+ Jammu and Kashmir            JK
+ Jharkhand                    JH
+ Karnataka                    KA
+ Kerala                       KL
+ Lakshadweep Islands          LD
+ Madhya Pradesh               MP
+ Maharashtra                  MH
+ Manipur                      MN
+ Meghalaya                    ME
+ Mizoram                      MI
+ Nagaland                     NL
+ Odisha                       OR
+ Pondicherry                  PY
+ Punjab                       PB
+ Rajasthan                    RJ
+ Sikkim                       SK
+ Tamil Nadu                   TN
+ Telangana                    TS
+ Tripura                      TR
+ Uttar Pradesh                UP
+ Uttarakhand                  UT
+ West Bengal                  WB")
 
     return str(resp)
 
