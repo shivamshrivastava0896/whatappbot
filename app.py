@@ -13,7 +13,7 @@ def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
-    if msg == "Hey":
+    if "Hey" in msg:
         resp = MessagingResponse()
         resp.message("Hey my Name Twilo , I will help you in 1. covid case number")
         print(type(msg))
