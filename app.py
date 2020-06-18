@@ -5,7 +5,7 @@ app=Flask(__name__)
 
 @app.route('/')
 def wel():
-    return 'Hello'
+    return 'Hello guys'
 
 @app.route("/sms", methods=['POST'])
 def sms_reply():
