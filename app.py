@@ -22,9 +22,9 @@ def sms_reply():
         
     elif "Joke" in msg:
         url='https://official-joke-api.appspot.com/random_joke'
-        response=request.get(url).json()
+        response=requests.get(url).json()
         resp = MessagingResponse()
-        resp.message(response['setup'] + response['punchline'])
+        resp.message(response['setup'] +" "+response['punchline'])
         print(type(msg))
         k= str(resp)
 
