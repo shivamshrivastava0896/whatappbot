@@ -33,8 +33,6 @@ def sms_reply():
          resp = MessagingResponse()
          resp.message("Would you like to See \n 1. State wise then Type Covid {State_Code} like Rajasthan AS Covid RJ \n 2. Total India cases then simply Type Covid India")
          k=str(resp)
-         msg = request.form.get('Body')
-         if msg == covid
     
     else:
         resp = MessagingResponse()
