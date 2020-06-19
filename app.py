@@ -17,8 +17,9 @@ def sms_reply():
     msg = request.form.get('Body')
     if "HEY" in msg.upper():
         resp = MessagingResponse()
-        resp.message("Hey there!! , My Name Twilo . '\n'  I will help you in '\n' 1). covid case number Please type covid ! "
-                    '\n' " 2). Joke of the day please type Joke")
+        resp.message("Hey there!! , My Name Twilo . \n  I will help you in \n 1). For Covid case number details Please type covid  "
+                    "\n  2). Joke of the day please type Joke"
+                    "\n Will offer you more option in FUTURE keep check the updates !!")
         print(type(msg))
         k= str(resp)
         
@@ -47,11 +48,15 @@ def sms_reply():
             Newcase +=int(Fullstatename[i]['delta']['confirmed'])
         resp = MessagingResponse()
         #details= "Your activecase is : {}".format(active) +" "+ "confirmed is : {}".format(confirmed) +" "+ "recovered is :{}".format(recovered) +'\n' + "newcase :{}".format(Newcase)
-        resp.message("Your activecase is : {}".format(active))   
+        resp.message("Your state active cases are : {}".format(active) "\n"
+                     "Your state recovered cases are : {}".format(recovered) "\n"
+                     "Your state confirmed cases are : {}".format(confirmed) "\n"
+                     "Your state deceased cases are : {}".format(deceased) "\n"
+                     "Your state today New cases are : {}".format(Newcase) "\n" )   
         k=str(resp)
     else:
         resp = MessagingResponse()
-        resp.message("I am still learning ,Shivam is helping me to answer your all question .Thanks")
+        resp.message("I am still learning , Shivam is helping me to answer your all questions .Keep Asking questions .Thanks")
         k=str(resp)
        
     return k
