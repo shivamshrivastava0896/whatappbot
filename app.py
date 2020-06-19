@@ -17,7 +17,7 @@ def sms_reply():
     with open('state.json') as f:
         statecode=json.load(f)
     msg = request.form.get('Body')
-    if "HEY" in msg.upper():
+    if "HEY" in msg.upper() or "HELLO" in msg.upper() or "HI" ==msg.upper():
         resp = MessagingResponse()
         resp.message("Hey there !! ,\n My Name Twilo 😀! \n I will help you guys in \n 1.) Covid Cases Update Please Type Covid 😷! \n 2.) A Joke for you Please Type Joke 😜! \n I am still learning will offer you more feature in Future 😊")
         print(str(resp))
@@ -35,12 +35,13 @@ def sms_reply():
          resp = MessagingResponse()
          resp.message("Would you like to See \n 1. State wise then Type Covid {State_Code} like Rajasthan AS Covid RJ \n 2. Total India cases then simply Type Covid India")
          k=str(resp)
-    elif msg.upper().split(" ")[1] in list(statecode.keys()):
+    elif "COVID" in msg.upper() and msg.upper().split(" ")[1] in list(statecode.keys()):
         url='https://api.covid19india.org/state_district_wise.json'
         data=requests.get(url).json()
         dicdata=dict(data)
         #print(dicdata.keys())
         Fullstatename=dicdata[statecode[msg.upper().split(" ")[1]]]['districtData']
+        active=0
         confirmed=0
         deceased=0
         recovered=0
