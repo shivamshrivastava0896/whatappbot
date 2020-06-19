@@ -17,8 +17,8 @@ def sms_reply():
     msg = request.form.get('Body')
     if "HEY" in msg.upper():
         resp = MessagingResponse()
-        resp.message("Hey there!!, My Name Twilo . +'\n' + I will help you in +'\n'+ 1). covid case number Please type covid ! "
-                    + '\n' +" 2). Joke of the day please type Joke")
+        resp.message("Hey there!! , My Name Twilo . '\n'  I will help you in '\n' 1). covid case number Please type covid ! "
+                    '\n' " 2). Joke of the day please type Joke")
         print(type(msg))
         k= str(resp)
         
@@ -30,13 +30,9 @@ def sms_reply():
         print(type(msg))
         k= str(resp)
     elif "COVID" in msg.upper():
-        with open('state.json') as f:
-            statecode=json.load(f)
         url='https://api.covid19india.org/state_district_wise.json'
         data=requests.get(url).json()
         dicdata=dict(data)
-        #print(dicdata.keys())
-        statename=statecode[val.upper()]
         Fullstatename=dicdata['Rajasthan']['districtData']
         active=0
         confirmed=0
@@ -49,9 +45,9 @@ def sms_reply():
             deceased +=int(Fullstatename[i]['deceased'])
             recovered +=int(Fullstatename[i]['recovered'])
             Newcase +=int(Fullstatename[i]['delta']['confirmed'])
-        details= "Your activecase is : {}".format(active) +" "+ "confirmed is : {}".format(confirmed) +" "+ "recovered is :{}".format(recovered) +'\n' + "newcase :{}".format(Newcase)
         resp = MessagingResponse()
-        resp.message(details)   
+        #details= "Your activecase is : {}".format(active) +" "+ "confirmed is : {}".format(confirmed) +" "+ "recovered is :{}".format(recovered) +'\n' + "newcase :{}".format(Newcase)
+        resp.message("Your activecase is : {}".format(active))   
         k=str(resp)
     else:
         resp = MessagingResponse()
