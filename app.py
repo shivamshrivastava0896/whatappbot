@@ -4,7 +4,7 @@ import requests
 import json
 app=Flask(__name__)
 
-
+GOOD_BOY_URL = "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
 @app.route('/')
 def wel():
     return 'Hello guys'
