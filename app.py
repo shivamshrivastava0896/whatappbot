@@ -29,6 +29,9 @@ def sms_reply():
         print(type(msg))
         k= str(resp)
     elif "COVID" in msg.upper():
+        with open('state.json') as f:
+            statename=json.load(f)
+        print(statename['RJ'])
         url='https://api.covid19india.org/state_district_wise.json'
         data=requests.get(url).json()
         dicdata=dict(data)
