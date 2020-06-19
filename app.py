@@ -14,6 +14,8 @@ def wel():
 def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
+    with open('state.json') as f:
+        statecode=json.load(f)
     msg = request.form.get('Body')
     if "HEY" in msg.upper():
         resp = MessagingResponse()
@@ -33,6 +35,27 @@ def sms_reply():
          resp = MessagingResponse()
          resp.message("Would you like to See \n 1. State wise then Type Covid {State_Code} like Rajasthan AS Covid RJ \n 2. Total India cases then simply Type Covid India")
          k=str(resp)
+    elif msg.upper().split(" ")[1] in list(statecode.keys()):
+        url='https://api.covid19india.org/state_district_wise.json'
+        data=requests.get(url).json()
+        dicdata=dict(data)
+        #print(dicdata.keys())
+        Fullstatename=dicdata[statecode[msg.upper().split(" ")[1]]]['districtData']
+        confirmed=0
+        deceased=0
+        recovered=0
+        Newcase=0
+        for i in Fullstatename.keys():
+            active +=int(Fullstatename[i]['active'])
+            confirmed +=int(Fullstatename[i]['confirmed'])
+            deceased +=int(Fullstatename[i]['deceased'])
+            recovered +=int(Fullstatename[i]['recovered'])
+            Newcase +=int(Fullstatename[i]['delta']['confirmed'])
+        resp = MessagingResponse()
+        #details= "Your activecase is : {}".format(active) +" "+ "confirmed is : {}".format(confirmed) +" "+ "recovered is :{}".format(recovered) +'\n' + "newcase :{}".format(Newcase)
+        resp.message("Your state active cases are : {}".format(active)+"😟" +'\n' +"Your state recovered cases are : {}".format(recovered)+"🤩" +'\n' +"Your state confirmed cases are : {}".format(confirmed) +"😯" +'\n'+"Your state deceased cases are : {}".format(deceased)+"😔"+'\n'+"Your state today New cases are : {}".format(Newcase)+"😔")   
+        k=str(resp)
+        
     
     else:
         resp = MessagingResponse()
