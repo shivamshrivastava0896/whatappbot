@@ -29,34 +29,16 @@ def sms_reply():
         print(type(msg))
         k= str(resp)
     elif "COVID" in msg.upper():
-        with open('state.json') as f:
-            statename=json.load(f)
-        print(statename['RJ'])
-        url='https://api.covid19india.org/state_district_wise.json'
-        data=requests.get(url).json()
-        dicdata=dict(data)
-        Fullstatename=dicdata['Rajasthan']['districtData']
-        active=0
-        confirmed=0
-        deceased=0
-        recovered=0
-        Newcase=0
-        for i in Fullstatename.keys():
-            active +=int(Fullstatename[i]['active'])
-            confirmed +=int(Fullstatename[i]['confirmed'])
-            deceased +=int(Fullstatename[i]['deceased'])
-            recovered +=int(Fullstatename[i]['recovered'])
-            Newcase +=int(Fullstatename[i]['delta']['confirmed'])
-        resp = MessagingResponse()
-        #details= "Your activecase is : {}".format(active) +" "+ "confirmed is : {}".format(confirmed) +" "+ "recovered is :{}".format(recovered) +'\n' + "newcase :{}".format(Newcase)
-        resp.message("Your state active cases are : {}".format(active)+"😟" +'\n' +"Your state recovered cases are : {}".format(recovered)+"🤩" +'\n' +"Your state confirmed cases are : {}".format(confirmed) +"😯" +'\n'+"Your state deceased cases are : {}".format(deceased)+"😔"+'\n'+"Your state today New cases are : {}".format(Newcase)+"😔")   
+         resp = MessagingResponse()
+        resp.message("Would you like to See \n 1. State wise then Type Covid {State_Code} like Rajasthan AS Covid RJ \n 2. Total India cases then simply Type Covid India")
         k=str(resp)
+    
     else:
         resp = MessagingResponse()
         resp.message("I am still learning , Shivam is helping me to answer your all questions .Keep Asking questions .Thanks")
         k=str(resp)
        
-    return k
+    return 'hello'
 
 
 if __name__=='__main__':
