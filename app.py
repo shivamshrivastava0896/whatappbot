@@ -17,7 +17,7 @@ def sms_reply():
     msg = request.form.get('Body')
     if "HEY" in msg.upper():
         resp = MessagingResponse()
-        resp.message("Hey there !! ,\n My Name Twilo ! \n I will help you guys in \n 1.) Covid Cases Update Please Type Covid ! \n 2.) A Joke for you Please Type Joke! \n I am still learning will offer you more feature in Future 😊")
+        resp.message("Hey there !! ,\n My Name Twilo 😀! \n I will help you guys in \n 1.) Covid Cases Update Please Type Covid 😷! \n 2.) A Joke for you Please Type Joke 😜! \n I am still learning will offer you more feature in Future 😊")
         print(type(msg))
         k= str(resp)
         
@@ -25,7 +25,7 @@ def sms_reply():
         url='https://official-joke-api.appspot.com/random_joke'
         response=requests.get(url).json()
         resp = MessagingResponse()
-        resp.message(response['setup'] +'\n' +'\n'+ "Answer :" +response['punchline'])
+        resp.message(response['setup'] +'\n' +'\n'+ "Reply :" +response['punchline'] +"😜🤣")
         print(type(msg))
         k= str(resp)
     elif "COVID" in msg.upper():
@@ -46,7 +46,7 @@ def sms_reply():
             Newcase +=int(Fullstatename[i]['delta']['confirmed'])
         resp = MessagingResponse()
         #details= "Your activecase is : {}".format(active) +" "+ "confirmed is : {}".format(confirmed) +" "+ "recovered is :{}".format(recovered) +'\n' + "newcase :{}".format(Newcase)
-        resp.message("Your state active cases are : {}".format(active) +'\n' +"Your state recovered cases are : {}".format(recovered) +'\n' +"Your state confirmed cases are : {}".format(confirmed) +'\n'+"Your state deceased cases are : {}".format(deceased) +'\n'+"Your state today New cases are : {}".format(Newcase))   
+        resp.message("Your state active cases are : {}".format(active)+"😟" +'\n' +"Your state recovered cases are : {}".format(recovered)+"🤩" +'\n' +"Your state confirmed cases are : {}".format(confirmed) +"😯" +'\n'+"Your state deceased cases are : {}".format(deceased)+"😔"+'\n'+"Your state today New cases are : {}".format(Newcase)+"😔")   
         k=str(resp)
     else:
         resp = MessagingResponse()
