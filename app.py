@@ -31,7 +31,7 @@ def sms_reply():
         resp.message(response['setup'] +'\n' +'\n'+ "Reply :" +response['punchline'] +"😜🤣")
         print(type(msg))
         k= str(resp)
-    elif "COVID" in msg.upper():
+    elif "COVID" == msg.upper():
          resp = MessagingResponse()
          resp.message("Would you like to See \n 1. State wise then Type Covid {State_Code} like Rajasthan AS Covid RJ \n 2. Total India cases then simply Type Covid India")
          k=str(resp)
