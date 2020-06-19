@@ -46,11 +46,7 @@ def sms_reply():
             Newcase +=int(Fullstatename[i]['delta']['confirmed'])
         resp = MessagingResponse()
         #details= "Your activecase is : {}".format(active) +" "+ "confirmed is : {}".format(confirmed) +" "+ "recovered is :{}".format(recovered) +'\n' + "newcase :{}".format(Newcase)
-        resp.message("Your state active cases are : {}".format(active) "\n"
-                     "Your state recovered cases are : {}".format(recovered) "\n"
-                     "Your state confirmed cases are : {}".format(confirmed) "\n"
-                     "Your state deceased cases are : {}".format(deceased) "\n"
-                     "Your state today New cases are : {}".format(Newcase) "\n" )   
+        resp.message("Your state active cases are : {}".format(active) + '\n' + "Your state recovered cases are : {}".format(recovered) "\n" )   
         k=str(resp)
     else:
         resp = MessagingResponse()
