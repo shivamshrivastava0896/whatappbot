@@ -21,6 +21,7 @@ def sms_reply():
         print(str(resp))
         k= str(resp)
         
+        
     elif "JOKE" in msg.upper():
         url='https://official-joke-api.appspot.com/random_joke'
         response=requests.get(url).json()
@@ -32,6 +33,8 @@ def sms_reply():
          resp = MessagingResponse()
          resp.message("Would you like to See \n 1. State wise then Type Covid {State_Code} like Rajasthan AS Covid RJ \n 2. Total India cases then simply Type Covid India")
          k=str(resp)
+         msg = request.form.get('Body')
+         if msg == covid
     
     else:
         resp = MessagingResponse()
@@ -39,6 +42,18 @@ def sms_reply():
         k=str(resp)
        
     return k
+
+@app.route("/whatsapp", methods=["GET", "POST"])
+def reply_whatsapp():
+
+    response = MessagingResponse()
+    num_media = int(request.values.get("NumMedia"))
+    if not num_media:
+        msg = response.message("Send us an image!")
+    else:
+        msg = response.message("Thanks for the image. Here's one for you!")
+        msg.media(GOOD_BOY_URL)
+    return str(response)
 
 
 if __name__=='__main__':
