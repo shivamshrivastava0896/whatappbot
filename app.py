@@ -56,7 +56,7 @@ def sms_reply():
         resp.message("I am still learning , Shivam is helping me to answer your all questions .Keep Asking questions .Thanks")
         k=str(resp)
        
-    return k
+    return 0
 
 
 if __name__=='__main__':
