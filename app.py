@@ -18,7 +18,7 @@ def sms_reply():
     if "HEY" in msg.upper():
         resp = MessagingResponse()
         resp.message("Hey there !! ,\n My Name Twilo 😀! \n I will help you guys in \n 1.) Covid Cases Update Please Type Covid 😷! \n 2.) A Joke for you Please Type Joke 😜! \n I am still learning will offer you more feature in Future 😊")
-        print(type(msg))
+        print(str(resp))
         k= str(resp)
         
     elif "JOKE" in msg.upper():
@@ -56,7 +56,7 @@ def sms_reply():
         resp.message("I am still learning , Shivam is helping me to answer your all questions .Keep Asking questions .Thanks")
         k=str(resp)
        
-    return 0
+    return k
 
 
 if __name__=='__main__':
