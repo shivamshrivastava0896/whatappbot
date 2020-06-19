@@ -17,7 +17,7 @@ def sms_reply():
     msg = request.form.get('Body')
     if "HEY" in msg.upper():
         resp = MessagingResponse()
-        resp.message("Hey there !! , \n My Name Twilo !")
+        resp.message("Hey there !! ,\n My Name Twilo ! \n I will help you guys in \n 1.) Covid Cases Update Please Type Covid ! \n 2.) A Joke for you Please Type Joke! \n I am still learning will offer you more feature in Future 😊")
         print(type(msg))
         k= str(resp)
         
@@ -25,7 +25,7 @@ def sms_reply():
         url='https://official-joke-api.appspot.com/random_joke'
         response=requests.get(url).json()
         resp = MessagingResponse()
-        resp.message(response['setup'] +" "+response['punchline'])
+        resp.message(response['setup'] +'\n' +'\n'+ "Answer :" +response['punchline'])
         print(type(msg))
         k= str(resp)
     elif "COVID" in msg.upper():
