@@ -17,9 +17,7 @@ def sms_reply():
     msg = request.form.get('Body')
     if "HEY" in msg.upper():
         resp = MessagingResponse()
-        resp.message("Hey there!! , My Name Twilo . \n  I will help you in \n 1). For Covid case number details Please type covid  "
-                    "\n  2). Joke of the day please type Joke"
-                    "\n Will offer you more option in FUTURE keep check the updates !!")
+        resp.message("Hey there!! , My Name Twilo . \n  I will help you in \n 1). For Covid case number details Please type covid  \n  2). Joke of the day please type Joke \n Will offer you more option in FUTURE keep check the updates !!")
         print(type(msg))
         k= str(resp)
         
