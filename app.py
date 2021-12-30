@@ -31,13 +31,13 @@ def sms_reply():
         resp.message(response['setup'] +'\n' +'\n'+ "Reply :" +response['punchline'] +"😜🤣")
         print(type(msg))
         k= str(resp)
-    elif "pincode" in (msg.lower()).split(" ")[0]:
-        ctry,pin=(msg.lower()).split(" ")[1],(msg.lower()).split(" ")[2]
-        url='https://api.zippopotam.us/{}/{}'.format(ctry,pin)
+    elif "pincode" in msg.split(" ")[0].lower():
+        ctry,pin=msg.split(" ")[1].lower(),msg.split(" ")[2]
+        url="https://api.zippopotam.us/{}/{}".format(ctry,pin)
         response=requests.get(url).json()
         resp = MessagingResponse()
         resp.message(response)
-        
+        k=str(resp)
     elif "COVID" == msg.upper():
          resp = MessagingResponse()
          resp.message("Would you like to See \n 1. State wise then Type Covid {State_Code} like Rajasthan AS Covid RJ \n 2. Total India cases then simply Type Covid India")
