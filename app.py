@@ -19,7 +19,7 @@ def sms_reply():
     msg = request.form.get('Body')
     if "HEY" in msg.upper() or "HELLO" in msg.upper() or "HI" ==msg.upper():
         resp = MessagingResponse()
-        resp.message("Hey there !! ,\n My Name Twilo 😀! \n I will help you guys in \n 1.) Covid Cases Update Please Type Covid 😷! \n 2.) A Joke for you Please Type Joke 😜! \n I am still learning will offer you more feature in Future 😊")
+        resp.message("Hey there !! ,\n My Name Twilo 😀! \n I will help you guys in \n 1.) Covid Cases Update Please Type Covid 😷! \n 2.) A Joke for you Please Type Joke 😜! \n 3.)type your pincode with country name like pincode in 123450!! \n I am still learning will offer you more feature in Future 😊")
         print(str(resp))
         k= str(resp)
         
@@ -31,6 +31,13 @@ def sms_reply():
         resp.message(response['setup'] +'\n' +'\n'+ "Reply :" +response['punchline'] +"😜🤣")
         print(type(msg))
         k= str(resp)
+    elif "pincode" in (msg.lower()).split(" ")[0]:
+        ctry,pin=(msg.lower()).split(" ")[1],(msg.lower()).split(" ")[2]
+        url='https://api.zippopotam.us/{}/{}'.format(ctry,pin)
+        response=requests.get(url).json()
+        resp = MessagingResponse()
+        resp.message(response)
+        
     elif "COVID" == msg.upper():
          resp = MessagingResponse()
          resp.message("Would you like to See \n 1. State wise then Type Covid {State_Code} like Rajasthan AS Covid RJ \n 2. Total India cases then simply Type Covid India")
